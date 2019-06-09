@@ -20,7 +20,7 @@ import vistaMedico.BajaMedico;
 import vistaMedico.ConsultaMedico;
 import vistaOperacion.CierreOperacion;
 import vistaPaciente.AltaPaciente;
-import vistaPaciente.BajaPAciente;
+import vistaPaciente.BajaPaciente;
 import vistaPaciente.ConsultaCitasPendientes;
 import vistaPaciente.ConsultaDatosPaciente;
 import vistaPaciente.HistorialPaciente;
@@ -60,7 +60,7 @@ public class UIGazpacho extends JFrame {
 		altaPaciente = new AltaPaciente();
 		altaPaciente.setMaximumSize(new Dimension(3000, 32767));
 		contentPane.add(altaPaciente, "altaPaciente");
-		BajaPAciente bajaPaciente = new BajaPAciente();
+		BajaPaciente bajaPaciente = new BajaPaciente();
 		contentPane.add(bajaPaciente, "bajaPaciente");
 		ConsultaCitasPendientes consultaCitasPendientes = new ConsultaCitasPendientes();
 		contentPane.add(consultaCitasPendientes, "consultaCitasPendientes");

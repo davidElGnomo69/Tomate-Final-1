@@ -19,7 +19,6 @@ public class Identificacion extends JPanel{
 	
 	private Stack<JTextField> misTxtsFields = new Stack<>();
 	
-
 	/**
 	 * Create the frame.
 	 */
@@ -126,5 +125,52 @@ public class Identificacion extends JPanel{
 	}
 	public JPanel getContentPane() {
 		return this;
+	}
+	public JTextField getTextNombre() {
+		return textNombre;
+	}
+
+	public void setTextNombre(JTextField textNombre) {
+		this.textNombre = textNombre;
+	}
+
+	public JTextField getTextApellidos() {
+		return textApellidos;
+	}
+
+	public void setTextApellidos(JTextField textApellidos) {
+		this.textApellidos = textApellidos;
+	}
+
+	public JTextField getTextDireccion() {
+		return textDireccion;
+	}
+
+	public void setTextDireccion(JTextField textDireccion) {
+		this.textDireccion = textDireccion;
+	}
+
+	public JTextField getTxtNacimiento() {
+		return txtNacimiento;
+	}
+
+	public void setTxtNacimiento(JTextField txtNacimiento) {
+		this.txtNacimiento = txtNacimiento;
+	}
+
+	public JTextField getTextTelefono() {
+		return textTelefono;
+	}
+
+	public void setTextTelefono(JTextField textTelefono) {
+		this.textTelefono = textTelefono;
+	}
+
+	public Stack<JTextField> getMisTxtsFields() {
+		return misTxtsFields;
+	}
+
+	public void setMisTxtsFields(Stack<JTextField> misTxtsFields) {
+		this.misTxtsFields = misTxtsFields;
 	}
 }

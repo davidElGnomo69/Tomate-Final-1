@@ -1,23 +1,55 @@
 package Modelo;
 
+import java.io.File;
+
 public class AdministradorPersonal {
+	private DAO daoMedicos=new DAO();
+	private String path="./Indentificadores/UltimoIdPersona.persona";
 	
-	public MedicoActivo darDeAltaMedicoActivo(String idMedico, String nombre, String telefono, String direccion, Especialidades especialidad, Consulta consulta, Horario horario) {
-		MedicoActivo medico = new MedicoActivo(idMedico, nombre, direccion, telefono, especialidad, consulta, horario);
+	public MedicoActivo darDeAltaMedicoActivo(String nombre, String telefono, String direccion, Especialidades especialidad, Consulta consulta, Horario horario) {
+		String id=obtenerUltimoId();
+		MedicoActivo medico = new MedicoActivo(obtenerUltimoId(), nombre, direccion, telefono, especialidad, consulta, horario);
 		
-		
+		grabarUltimoId(id);
 		return medico;
 	}
 	
-	public CirujanoActivo darDeAltaCirujanoActivo(String idMedico, String nombre, String telefono, String direccion, Especialidades especialidad, Consulta consulta) {
-		CirujanoActivo cirujano=new CirujanoActivo(idMedico, nombre, direccion, telefono, especialidad);
+	public CirujanoActivo darDeAltaCirujanoActivo(String nombre, String telefono, String direccion, Especialidades especialidad, Consulta consulta) {
+		String id=obtenerUltimoId();
+		CirujanoActivo cirujano=new CirujanoActivo(id, nombre, direccion, telefono, especialidad);
 		
+		grabarUltimoId(id);
 		return cirujano;
 	}
 	
-	public Medico getDatosMedicoGenerales(String idMedico, String nombre, String telefono, String direccion, Especialidades especialidad) {
-		Medico medico = new Medico(idMedico, nombre, direccion, telefono, especialidad);
+	
+	private String obtenerUltimoId() {
+		String id;
+		File file=new File(path);
 		
-		return medico;
+		if(!file.exists()) {
+			grabarUltimoId("0");
+		}
+		id=(String) daoMedicos.leer(path);
+		
+		return id;
 	}
+	
+	private boolean grabarUltimoId(String id) {
+		boolean grabado=true;
+		int idNumero;
+		
+		idNumero=Integer.parseInt(id);
+		idNumero++;
+		id=Integer.toString(idNumero);
+		
+		if(!daoMedicos.grabar(path, id)) {
+			grabado=false;
+		}
+		
+		return grabado;
+	}
+	
 }
+
+

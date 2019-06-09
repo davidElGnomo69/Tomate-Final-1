@@ -1,6 +1,7 @@
 package Modelo;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Cita implements Serializable {
@@ -10,22 +11,22 @@ public class Cita implements Serializable {
 	private DiasDeLaSemana dia;
 	private boolean confirmacionDeAsistencia = false;
 	private String observaciones;
-	private LocalTime fechaCita;
+	private LocalDateTime fechaCita;
 
-	public Cita(String idCita, Paciente paciente, Medico medico, LocalTime fechaCita, DiasDeLaSemana dia) {
+	public Cita(String idCita, Paciente paciente, Medico medico, LocalDateTime fechaCita, DiasDeLaSemana dia) {
 		super();
 		this.idCita = idCita;
 		this.medico = medico;
 		this.paciente = paciente;
-		this.fechaCita = LocalTime.of(fechaCita.getHour(),0);
+		this.fechaCita = LocalDateTime.of(fechaCita.getYear(),fechaCita.getMonth(),fechaCita.getDayOfMonth(),fechaCita.getHour(),0);
 		this.dia = dia;
 	}
 
-	public LocalTime getFechaCita() {
+	public LocalDateTime getFechaCita() {
 		return fechaCita;
 	}
 
-	public void setFechaCita(LocalTime fechaCita) {
+	public void setFechaCita(LocalDateTime fechaCita) {
 		this.fechaCita = fechaCita;
 	}
 
