@@ -15,7 +15,6 @@ import panelComunes.Tabla;
 
 public class CierreOperacion extends JPanel {
 	String [] titulosColumnas = {"Paciente","Operacion","Cirujano","Resultado"};
-	String [] campos = {"tuputamadre","minguito","espabilate","que stas por hacer desgraciao"};
 	
 	Mensaje mensaje;
 	

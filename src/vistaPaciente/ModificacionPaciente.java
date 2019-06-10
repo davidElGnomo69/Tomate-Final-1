@@ -14,8 +14,8 @@ import panelComunes.Seleccion;
 import java.awt.BorderLayout;
 
 public class ModificacionPaciente extends JPanel {
-	Identificacion identificacion;
-	Mensaje mensaje;
+	private Identificacion identificacion;
+	private Mensaje mensaje;
 
 	/**
 	 * Create the panel.
@@ -53,13 +53,15 @@ public class ModificacionPaciente extends JPanel {
 		setLayout(groupLayout);
 
 	}
+	
 
-	public Identificacion getIdentificacionModificacionPaciente() {
+	public Identificacion getIdentificacion() {
 		return identificacion;
 	}
 
-	public void setIdentificacionModificacionPaciente(Identificacion identificacion) {
-		this.identificacion = identificacion;
+
+	public Mensaje getMensaje() {
+		return mensaje;
 	}
 
 	public Mensaje getMensajeModificacionPaciente() {
