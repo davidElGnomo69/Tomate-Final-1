@@ -10,7 +10,9 @@ public class MedicoActivo extends Medico implements Serializable{
 			Consulta consulta, Horario horarioConsulta) {
 		super(idPersona, nombre, direccion, telefono, especialidad);
 		this.consulta = consulta;
-		horarioConsulta=new Horario();
+	}
+	public void setHorario(Horario horario) {
+		horarioConsulta=horario;
 	}
 
 	public Consulta getConsulta() {

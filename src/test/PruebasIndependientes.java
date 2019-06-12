@@ -2,18 +2,26 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
+import Modelo.Cita;
 import Modelo.Consulta;
 import Modelo.DiasDeLaSemana;
 import Modelo.Especialidades;
 import Modelo.Horario;
 import Modelo.Medico;
+import Modelo.Paciente;
 import adaptadores.AdaptadorArraylist;
+import control.GestionCitas;
+import control.GestionHorario;
 
 class PruebasIndependientes {
 
@@ -60,26 +68,48 @@ class PruebasIndependientes {
 	@Test
 	void pruebaObternerTurno() {
 		Medico medico= new Medico("1", "pepito", "mas", "642", Especialidades.AtencionPrimaria);
-		DiasDeLaSemana [] diaTrabajo= new DiasDeLaSemana[3]; 
-		diaTrabajo[0]=DiasDeLaSemana.Monday;
-		diaTrabajo[1]=DiasDeLaSemana.Tuesday;
-		diaTrabajo[2]=DiasDeLaSemana.ThursDay;
-		Consulta consulta=new Consulta(0, medico,diaTrabajo);
-		LocalTime horaTrabajo[]=consulta.obtenerTurno(1);
-		LocalTime[] horasEsperadas = new LocalTime[4];
-		for (int j = 0; j < 4; j++) {
-			horasEsperadas[j] = horasEsperadas[j].of(8 + j, 0);
-		}
-//		assertArrayEquals(horaTrabajo, horasEsperadas);
-		Horario horario=consulta.getHOHorario();
-		int[][] horarioSemanal = horario.getHorarioSemanal();
-		for (int i = 0; i < horarioSemanal.length; i++) {
-			for (int j = 0; j < horarioSemanal[i].length; j++) {
-				System.out.print(horarioSemanal[i][j]+" ");
-			}
-			System.out.println();
-			System.out.println(horaTrabajo[i]);
-			
-		}
+		GestionHorario gestionConsultas=new GestionHorario();
+		gestionConsultas.ocuparConsultaPrimaria(0, medico);
+		LocalTime[]horarioEsperado= {LocalTime.of(8, 0),LocalTime.of(9, 0),LocalTime.of(10, 0),LocalTime.of(11, 0)};
+		assertArrayEquals(medico.getHorario(),horarioEsperado);
+		assertTrue(gestionConsultas.getConsultasPrimaria()[0]==1);
+		
+	}
+	@Test
+	void getDatos() {
+		ArrayList<Cita> lista=new ArrayList<Cita>();
+		Date date=new Date(1992,2,10);
+		Medico medico= new Medico("1", "Papaito", "mas", "642", Especialidades.AtencionPrimaria);
+		Paciente paciente= new Paciente("2", "chiquito", "direccion", "telefono", date);
+		Cita cita=new Cita("1", paciente, medico, LocalDateTime.of(LocalDate.of(2019, 06, 12), LocalTime.of(20, 0)), DiasDeLaSemana.Monday);
+		lista.add(cita);
+		lista.add(cita);
+		GestionCitas gestionCitas=new GestionCitas();
+		String[]retorno;
+		int []campos= {1,2,3};
+		String[][] camposMatriz;
+		camposMatriz=gestionCitas.getDatos(lista, campos);
+		retorno=gestionCitas.getDatosCita(cita,campos);
+		String[]retornoEsperado= {"AtencionPrimaria","2019-06-12T20:00","Papaito"};
+		String[][]retornoMatrizEsperado= {{"AtencionPrimaria","2019-06-12T20:00","Papaito"},{"AtencionPrimaria","2019-06-12T20:00","Papaito"}};
+		assertArrayEquals(retornoEsperado, retorno);
+		assertArrayEquals(retornoMatrizEsperado, camposMatriz);
+	}
+	@Test
+	void Horario() {
+		DiasDeLaSemana[] diaTrabajo = { DiasDeLaSemana.Monday, DiasDeLaSemana.Tuesday, DiasDeLaSemana.Wednesday,
+				DiasDeLaSemana.ThursDay, DiasDeLaSemana.Friday };
+		LocalTime[]horaTrabajo= {LocalTime.of(8, 0),LocalTime.of(9, 0),LocalTime.of(10, 0),LocalTime.of(11, 0)};
+		Horario horario=new Horario(horaTrabajo, diaTrabajo);
+		int horarioEsperado[][]= {{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1},{1,1,1,1,1}};
+		assertArrayEquals(horarioEsperado, horario.getHorarioSemanal());
+		horario.seleccionarDia(0, 0);
+		assertTrue(horario.getHorarioSemanal()[0][0]==2);
+		horario.seleccionarDia(0, 0);
+		assertTrue(horario.getHorarioSemanal()[0][0]==1);
+		horario.seleccionarDia(0, 0);
+		horario.reservarDias();
+		assertTrue(horario.getHorarioSemanal()[0][0]==3);
+		assertTrue(horario.getHorarioSemanal()[0][1]!=3);
 	}
 }
