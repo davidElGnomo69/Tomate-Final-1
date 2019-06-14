@@ -5,57 +5,25 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Consulta {
-	ArrayList<Persona> puestosAtencionPrimaria = new ArrayList<Persona>();
-	ArrayList<LocalTime[]> turnosDisponibles = new ArrayList<LocalTime[]>();
-	Horario horario;
+	Horario[] horarios=new Horario[2];
+	int[] consultas=new int[2];
+	
 
-	public Consulta(int turno,Persona medico,DiasDeLaSemana[] diaTrabajo) {
+
+	public Consulta(DiasDeLaSemana[] diaTrabajo) {
 		super();
 		int ultimaHora=8;
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < horarios.length; i++) {
 			LocalTime[] horas = new LocalTime[4];
 			for (int j = 0; j < 4; j++) {
 				horas[j] = horas[j].of(ultimaHora++, 0);
 			}
-			turnosDisponibles.add(horas);
+			horarios[i]=new Horario(horas, diaTrabajo);
 		}
-		contratarMedico(medico);
-		horario=new Horario(obtenerTurno(turno), diaTrabajo);
 	}
 
-	/*
-	 * esta variable no esta puesta en funcion de si quereis poner mas de un medico
-	 * en una consulta
-	 */
-	final int numeroTrabajadores = 2;
-
-	public boolean puestoLibre() {
-		return puestosAtencionPrimaria.size() < numeroTrabajadores;
-	}
-
-	public void eliminarMedico(Medico medico) {
-		puestosAtencionPrimaria.remove(medico);
-	}
-
-	public LocalTime[] obtenerTurno(int turno) {
-		LocalTime[] retorno = null;
-		if (turno<=turnosDisponibles.size()) {
-			retorno=turnosDisponibles.get(turno);
-//			eliminarTurno(turno);
-		}
-		return retorno;
-	}
-	public Horario getHOHorario() {
-		return horario;
-	}
-	private void eliminarTurno(int turno) {
-		turnosDisponibles.remove(turno);
-	}
 	
 
-	public void contratarMedico(Persona medico) {
-//		turnosDisponibles.remove(turno);
-		puestosAtencionPrimaria.add(medico);
-	}
+
 
 }
