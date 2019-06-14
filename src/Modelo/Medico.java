@@ -5,13 +5,13 @@ import java.time.LocalTime;
 
 public class Medico extends Persona implements Serializable{
 	private Especialidades especialidad;
-	private LocalTime[] turno;
-	private Consulta consulta;
+	private LocalTime[] horario;
+
 
 	public Medico(String idPersona, String nombre, String direccion, String telefono, Especialidades especialidad) {
 		super(idPersona, nombre, direccion, telefono);
 		this.setEspecialidad(especialidad);
-//		this.turno=
+		this.horario=horario;
 	}
 
 	public Especialidades getEspecialidad() {
@@ -22,5 +22,12 @@ public class Medico extends Persona implements Serializable{
 		this.especialidad = especialidad;
 	}
 	
+	public LocalTime[] getHorario() {
+		return horario;
+	}
+
+	public void setHorario(LocalTime[] horario) {
+		this.horario = horario;
+	}
 	
 }
