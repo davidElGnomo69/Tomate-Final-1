@@ -43,7 +43,19 @@ public class UIGazpacho extends JFrame {
 	protected JSpinner spnPasarDía;
 	protected JMenuBar menu;
 	private AltaPaciente altaPaciente;
-	
+	private BajaPaciente bajaPaciente;
+	private ModificacionPaciente modificacionPaciente;
+	private PedirCitaEspecialista pedirCitaEspecialista;
+	private PedirOperacion pedirOperacion;
+	private PedirCitaPrimaria pedirCitaPrimaria;
+	private CierreOperacion cierreOperacion;
+	private AltaMedico altaMedico;
+	private AtenderCita atenderCita;
+	private BajaMedico bajaMedico;
+	private ConsultaMedico consultaDatosMedico;
+	private ConsultaCitasPendientes consultaCitasPendientes;
+	private ConsultaDatosPaciente consultaDatosPacientes;
+	private HistorialPaciente historialPaciente;
 
 	/**
 	 * Create the frame.
@@ -60,31 +72,31 @@ public class UIGazpacho extends JFrame {
 		altaPaciente = new AltaPaciente();
 		altaPaciente.setMaximumSize(new Dimension(3000, 32767));
 		contentPane.add(altaPaciente, "altaPaciente");
-		BajaPaciente bajaPaciente = new BajaPaciente();
+		bajaPaciente = new BajaPaciente();
 		contentPane.add(bajaPaciente, "bajaPaciente");
-		ConsultaCitasPendientes consultaCitasPendientes = new ConsultaCitasPendientes();
+		consultaCitasPendientes = new ConsultaCitasPendientes();
 		contentPane.add(consultaCitasPendientes, "consultaCitasPendientes");
-		ConsultaDatosPaciente consultaDatosPacientes = new ConsultaDatosPaciente();
+		consultaDatosPacientes = new ConsultaDatosPaciente();
 		contentPane.add(consultaDatosPacientes, "consultaDatosPaciente");
-		HistorialPaciente historialPaciente = new HistorialPaciente();
+		historialPaciente = new HistorialPaciente();
 		contentPane.add(historialPaciente, "historialPaciente");
-		ModificacionPaciente modificacionPaciente = new ModificacionPaciente();
+		modificacionPaciente = new ModificacionPaciente();
 		contentPane.add(modificacionPaciente, "modificacionPaciente");
-		PedirCitaEspecialista pedirCitaEspecialista = new PedirCitaEspecialista();
+		pedirCitaEspecialista = new PedirCitaEspecialista();
 		contentPane.add(pedirCitaEspecialista, "pedirCitaEspecialista");
-		PedirCitaPrimaria pedirCitaPrimaria = new PedirCitaPrimaria();
+		pedirCitaPrimaria = new PedirCitaPrimaria();
 		contentPane.add(pedirCitaPrimaria, "pedirCitaPrimaria");
-		PedirOperacion pedirOperacion = new PedirOperacion();
+		pedirOperacion = new PedirOperacion();
 		contentPane.add(pedirOperacion, "pedirOperacion");
-		CierreOperacion cierreOperacion = new CierreOperacion();
+		cierreOperacion = new CierreOperacion();
 		contentPane.add(cierreOperacion, "cierreOperacion");
-		AltaMedico altaMedico = new AltaMedico();
+		altaMedico = new AltaMedico();
 		contentPane.add(altaMedico, "altaMedico");
-		AtenderCita atendercita = new AtenderCita();
-		contentPane.add(atendercita, "atenderCita");
-		BajaMedico bajaMedico = new BajaMedico();
+		atenderCita = new AtenderCita();
+		contentPane.add(atenderCita, "atenderCita");
+		bajaMedico = new BajaMedico();
 		contentPane.add(bajaMedico, "bajaMedico");
-		ConsultaMedico consultaDatosMedico = new ConsultaMedico();
+		consultaDatosMedico = new ConsultaMedico();
 		contentPane.add(consultaDatosMedico, "consultaDatosMedico");
 
 		menu = new JMenuBar();
@@ -243,6 +255,77 @@ public class UIGazpacho extends JFrame {
 
 	public AltaPaciente getAltaPaciente() {
 		return altaPaciente;
+	}
+	
+
+
+	public JMenuBar getMenu() {
+		return menu;
+	}
+
+
+	public BajaPaciente getBajaPaciente() {
+		return bajaPaciente;
+	}
+
+
+	public ModificacionPaciente getModificacionPaciente() {
+		return modificacionPaciente;
+	}
+
+
+	public PedirCitaEspecialista getPedirCitaEspecialista() {
+		return pedirCitaEspecialista;
+	}
+
+
+	public PedirOperacion getPedirOperacion() {
+		return pedirOperacion;
+	}
+
+
+	public PedirCitaPrimaria getPedirCitaPrimaria() {
+		return pedirCitaPrimaria;
+	}
+
+
+	public CierreOperacion getCierreOperacion() {
+		return cierreOperacion;
+	}
+
+
+	public AltaMedico getAltaMedico() {
+		return altaMedico;
+	}
+
+
+	public AtenderCita getAtenderCita() {
+		return atenderCita;
+	}
+
+
+	public BajaMedico getBajaMedico() {
+		return bajaMedico;
+	}
+
+
+	public ConsultaMedico getConsultaDatosMedico() {
+		return consultaDatosMedico;
+	}
+
+
+	public ConsultaCitasPendientes getConsultaCitasPendientes() {
+		return consultaCitasPendientes;
+	}
+
+
+	public ConsultaDatosPaciente getConsultaDatosPacientes() {
+		return consultaDatosPacientes;
+	}
+
+
+	public HistorialPaciente getHistorialPaciente() {
+		return historialPaciente;
 	}
 
 

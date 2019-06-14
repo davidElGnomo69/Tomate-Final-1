@@ -16,14 +16,16 @@ import java.awt.BorderLayout;
 
 public class PedirCitaEspecialista extends JPanel {
 
-	Mensaje mensaje;
+	private Mensaje mensaje;
+	private Seleccion seleccion;
+	private VistaCitaIssam horario;
 
 	/**
 	 * Create the panel.
 	 */
 	public PedirCitaEspecialista() {
-		Seleccion seleccion = new Seleccion();
-		VistaCitaIssam horario = new VistaCitaIssam();
+		seleccion = new Seleccion();
+		horario = new VistaCitaIssam();
 		mensaje = new Mensaje();
 
 		JLabel lblNewLabel = new JLabel("Cita Especialista");
@@ -77,4 +79,16 @@ public class PedirCitaEspecialista extends JPanel {
 		return mensaje.getTextField().getText();
 	}
 
+	public Mensaje getMensaje() {
+		return mensaje;
+	}
+
+	public Seleccion getSeleccion() {
+		return seleccion;
+	}
+
+	public VistaCitaIssam getHorario() {
+		return horario;
+	}
+	
 }

@@ -5,34 +5,48 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import Modelo.Cita;
+import adaptadores.AdaptadorArraylist;
 
 public class GestionCitas {
-ArrayList<Cita> citasActivas=new ArrayList<Cita>();
-ArrayList<Cita> citasLibres=new ArrayList<Cita>();
-ArrayList<Cita> citasAtencionPrimaria=new ArrayList<Cita>();
-ArrayList<Cita> citasEspecialista=new ArrayList<Cita>();
+	ArrayList<Cita> citasAtendidas = new ArrayList<Cita>();
+	ArrayList<Cita> citasPendientes = new ArrayList<Cita>();
 
-public void reservarCita(Cita cita) {
-	citasLibres.remove(cita);
-}
-public void cancelarCita(Cita cita) {
-	citasLibres.add(cita);
-}
-public ArrayList<Cita> getCitasActivas() {
-	return citasActivas;
-}
-public ArrayList<Cita> getCitasLibres() {
-	return citasLibres;
-}
-public void eliminarCitasPasadas(LocalDateTime caducidad) {
-	ArrayList<Cita> citasEliminadas= new ArrayList<Cita>();
-	for (Cita cita : citasActivas) {
-		if (cita.getFechaCita().isAfter(caducidad)) {
-			citasEliminadas.add(cita);
+	public String[] getDatosCita(Cita cita, int[] campos) {
+		String datos[] = { cita.getPaciente().getNombre(), cita.getMedico().getEspecialidad().name(),
+				cita.getFechaCita().toString(), cita.getMedico().getNombre() };
+		String[] retorno = new String[campos.length];
+		for (int i = 0; i < campos.length; i++) {
+			retorno[i] = datos[campos[i]];
 		}
+		return retorno;
 	}
-	citasAtencionPrimaria.removeAll(citasEliminadas);
-	citasEspecialista.removeAll(citasEliminadas);
-}
+
+	public String[][] getDatos(ArrayList<Cita> lista, int[] campos) {
+		String[][] retorno = new String[lista.size()][campos.length];
+		int i = 0;
+		for (Cita cita : lista) {
+			retorno[i] = getDatosCita(cita, campos);
+			i++;
+		}
+		return retorno;
+	}
+
+	public void eliminarCitasPasadas(LocalDateTime fechaActual) {
+		ArrayList<Cita> citasEliminadas = new ArrayList<Cita>();
+		for (Cita cita : citasPendientes) {
+			if (cita.getFechaCita().isAfter(fechaActual)) {
+				citasEliminadas.add(cita);
+			}
+		}
+		citasPendientes.removeAll(citasEliminadas);
+	}
+
+	public ArrayList<Cita> getCitasPendientes() {
+		return citasPendientes;
+	}
+
+	public void setCitasPendientes(ArrayList<Cita> citasPendientes) {
+		this.citasPendientes = citasPendientes;
+	}
 
 }
