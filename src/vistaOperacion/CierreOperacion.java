@@ -17,11 +17,13 @@ public class CierreOperacion extends JPanel {
 	String [] titulosColumnas = {"Paciente","Operacion","Cirujano","Resultado"};
 	String [] campos = {"tuputamadre","minguito","espabilate","que stas por hacer desgraciao"};
 	
+	Mensaje mensaje;
+	
 	/**
 	 * Create the panel.
 	 */
 	public CierreOperacion() {
-		Mensaje mensaje = new Mensaje();
+		mensaje = new Mensaje();
 		Tabla tabla = new Tabla("Cierre operaciones", titulosColumnas );
 		tabla.agregarFila(campos);
 		
@@ -53,6 +55,18 @@ public class CierreOperacion extends JPanel {
 		);
 		setLayout(groupLayout);
 
+	}
+	
+	public Mensaje getMensajeCierreOperacion() {
+		return mensaje;
+	}
+
+	public void setMensajeCierreOperacion(Mensaje mensaje) {
+		this.mensaje = mensaje;
+	}
+	
+	public String getTextField() {
+		return mensaje.getTextField().getText();
 	}
 
 }

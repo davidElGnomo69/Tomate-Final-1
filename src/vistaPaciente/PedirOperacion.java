@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 
 public class PedirOperacion extends JPanel {
 
+	Mensaje mensaje;
 	/**
 	 * Create the panel.
 	 */
@@ -95,4 +96,17 @@ public class PedirOperacion extends JPanel {
 		setLayout(groupLayout);
 
 	}
+	public Mensaje getMensajePedirCitaOperacion() {
+		return mensaje;
+	}
+
+	public void setMensajePedirCitaOperacion(Mensaje mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	public String getTextField() {
+		return mensaje.getTextField().getText();
+	}
+
+
 }

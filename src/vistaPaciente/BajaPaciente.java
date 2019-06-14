@@ -12,12 +12,12 @@ import panelComunes.Identificacion;
 import panelComunes.Mensaje;
 import panelComunes.Seleccion;
 
-public class BajaPAciente extends JPanel {
+public class BajaPaciente extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public BajaPAciente() {
+	public BajaPaciente() {
 		Identificacion identificacion = new Identificacion();
 		Mensaje mensaje = new Mensaje();
 		Seleccion seleccion = new Seleccion();

@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.BorderLayout;
 
 public class PedirCitaPrimaria extends JPanel {
+	Mensaje mensaje;
 
 	/**
 	 * Create the panel.
@@ -58,4 +59,18 @@ public class PedirCitaPrimaria extends JPanel {
 		setLayout(groupLayout);
 
 	}
+	
+	public Mensaje getMensajePedirCitaPrimaria() {
+		return mensaje;
+	}
+
+	public void setMensajePedirCitaPrimaria(Mensaje mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	public String getTextField() {
+		return mensaje.getTextField().getText();
+	}
+
+
 }
