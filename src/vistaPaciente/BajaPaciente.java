@@ -13,14 +13,17 @@ import panelComunes.Mensaje;
 import panelComunes.Seleccion;
 
 public class BajaPaciente extends JPanel {
+	private Seleccion seleccion;
+	private Identificacion identificacion;
+	private Mensaje mensaje;
 
 	/**
 	 * Create the panel.
 	 */
 	public BajaPaciente() {
-		Identificacion identificacion = new Identificacion();
-		Mensaje mensaje = new Mensaje();
-		Seleccion seleccion = new Seleccion();
+		identificacion = new Identificacion();
+		mensaje = new Mensaje();
+		seleccion = new Seleccion();
 		
 		
 		
@@ -63,6 +66,18 @@ public class BajaPaciente extends JPanel {
 		
 		setLayout(groupLayout);
 
+	}
+
+	public Seleccion getSeleccion() {
+		return seleccion;
+	}
+
+	public Identificacion getIdentificacion() {
+		return identificacion;
+	}
+
+	public Mensaje getMensaje() {
+		return mensaje;
 	}
 
 }

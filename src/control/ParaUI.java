@@ -2,6 +2,8 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.time.LocalDateTime;
 
 import vistaVentana.UIGazpacho;
@@ -24,10 +26,28 @@ public class ParaUI extends UIGazpacho {
 				spnPasarHora.setValue(0);
 			}
 		});
-		getAltaPaciente().getBtnMensaje().addActionListener(new ActionListener() {
+		getAltaPaciente().getMensaje().getBtnAplicar().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("hola");
+				//TODO			
+				}
+		});
+		getBajaPaciente().getMensaje().getBtnAplicar().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO
 			}
 		});
+		getModificacionPaciente().getMensaje().getBtnAplicar().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO
+			}
+		});
+		//TODO ACTION DE LOS COMBOBOX
+		
+		getPedirCitaEspecialista().getMensaje().getBtnAplicar().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO
+			}
+		});
+		
 	}
 }
