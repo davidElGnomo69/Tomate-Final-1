@@ -81,9 +81,10 @@ public class AlmacenMedicos{
 	
 	public boolean eliminarCirujano(CirujanoActivo cirujano) {
 		boolean eliminado=false;
+		System.out.println(cirujanos.contains(cirujano));
 		
-		daoMedicos.borrarFile(pathCirujanos);
 		eliminado=cirujanos.remove(cirujano);
+		System.out.println(eliminado);
 		if(!daoMedicos.grabar(pathCirujanos, cirujanos) && eliminado) {
 			cirujanos.add(cirujano);
 			eliminado=false;

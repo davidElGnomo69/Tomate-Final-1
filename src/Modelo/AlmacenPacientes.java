@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.io.File;
 import java.util.TreeMap;
 
 public class AlmacenPacientes implements IAlmacen<Paciente, String>{
@@ -12,9 +13,12 @@ public class AlmacenPacientes implements IAlmacen<Paciente, String>{
 	}
 	
 	public TreeMap<String, String> obetenerMapa() {
-		TreeMap<String, String> mapaPacientes2= (TreeMap<String,String>) daoPacientes.leer("./FicherosPacientes/MapaPacientes.mapa");
+		File file=new File("./FicherosPacientes/MapaPacientes.mapa");
+		if(file.canRead()) {
+			mapaPacientes= (TreeMap<String,String>) daoPacientes.leer("./FicherosPacientes/MapaPacientes.mapa");
+		}
 		
-		return mapaPacientes2;
+		return mapaPacientes;
 	}
 	
 	
@@ -37,6 +41,7 @@ public class AlmacenPacientes implements IAlmacen<Paciente, String>{
 		boolean grabado=true;
 		
 		mapaPacientes.put(paciente.getNombre(), paciente.getIdPersona());
+		grabarMapa();
 		if(!daoPacientes.grabar(generarPath(paciente.getNombre()), paciente)) {
 			mapaPacientes.remove(paciente.getNombre());
 			grabado=false;
@@ -48,7 +53,8 @@ public class AlmacenPacientes implements IAlmacen<Paciente, String>{
 	@Override
 	public boolean borrar(String id) {
 		assert id!=null;
-		
+		mapaPacientes.remove(id);
+		grabarMapa();
 		return daoPacientes.borrarFile(generarPath(id));
 	}
 	
