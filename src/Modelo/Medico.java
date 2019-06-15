@@ -11,7 +11,6 @@ public class Medico extends Persona implements Serializable{
 	public Medico(String idPersona, String nombre, String direccion, String telefono, Especialidades especialidad) {
 		super(idPersona, nombre, direccion, telefono);
 		this.setEspecialidad(especialidad);
-		this.horario=horario;
 	}
 
 	public Especialidades getEspecialidad() {

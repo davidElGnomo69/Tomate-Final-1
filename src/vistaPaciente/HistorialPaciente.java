@@ -19,8 +19,8 @@ public class HistorialPaciente extends JPanel {
 	 */
 	public HistorialPaciente() {
 		
-		Tabla tabla = new Tabla("Historial citas", titulosColumnas);
-		Tabla tabla2 = new Tabla("Tratamiento", titulosColumnas2);
+		Tabla tabla = new Tabla("Historial citas", titulosColumnas, null, titulosColumnas);
+		Tabla tabla2 = new Tabla("Tratamiento", titulosColumnas2, null, titulosColumnas);
 		Seleccion seleccion = new Seleccion();
 		JLabel lblNewLabel = new JLabel("Historial Paciente");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));

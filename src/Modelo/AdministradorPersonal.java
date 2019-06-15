@@ -14,7 +14,7 @@ public class AdministradorPersonal {
 		return medico;
 	}
 	
-	public CirujanoActivo darDeAltaCirujanoActivo(String nombre, String telefono, String direccion, Especialidades especialidad, Consulta consulta) {
+	public CirujanoActivo darDeAltaCirujanoActivo(String nombre, String telefono, String direccion, Especialidades especialidad) {
 		String id=obtenerUltimoId();
 		CirujanoActivo cirujano=new CirujanoActivo(id, nombre, direccion, telefono, especialidad);
 		

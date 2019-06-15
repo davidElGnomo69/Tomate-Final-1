@@ -19,7 +19,7 @@ public class ConsultaCitasPendientes extends JPanel {
 	 * Create the panel.
 	 */
 	public ConsultaCitasPendientes() {
-		Tabla tabla = new Tabla("Citas pendientes", titulosColumnas ); 
+		Tabla tabla = new Tabla("Citas pendientes", titulosColumnas, null, titulosColumnas ); 
 		seleccion = new Seleccion();
 		JLabel lblNewLabel = new JLabel("Citas Pendiente Paciente");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));

@@ -1,11 +1,16 @@
 package panelComunes;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import Modelo.Persona;
 
 public class Seleccion extends JPanel {
 
@@ -27,6 +32,7 @@ public class Seleccion extends JPanel {
 		JLabel lblId = new JLabel("ID");
 
 		cmbID = new JComboBox();
+		
 
 		GroupLayout gl_contentPane = new GroupLayout(this);
 		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING).addGroup(

@@ -20,6 +20,7 @@ public class ConsultaMedico extends JPanel {
 	private JTextField altaEspecialidad;
 	private JTextField altaConsulta;
 	private JTextField altaHorario;
+	private Seleccion seleccion;
 
 	Identificacion identificacion;
 
@@ -56,7 +57,7 @@ public class ConsultaMedico extends JPanel {
 		altaHorario.setBounds(214, 355, 162, 22);
 		altaHorario.setEditable(false);
 		altaHorario.setColumns(10);
-		Seleccion seleccion = new Seleccion();
+		seleccion = new Seleccion();
 		seleccion.setBounds(122, 66, 395, 48);
 		identificacion = new Identificacion();
 		identificacion.setBounds(122, 127, 478, 160);
@@ -74,6 +75,10 @@ public class ConsultaMedico extends JPanel {
 		add(seleccion);
 	}
 
+	public Seleccion getSeleccion() {
+		return seleccion;
+	}
+
 	public Identificacion getIdentificacionConsultaMedico() {
 		return identificacion;
 	}
@@ -86,6 +91,30 @@ public class ConsultaMedico extends JPanel {
 		return identificacion.getTextNombre().getText();
 	}
 
+	public void setTextApellidos(String apellidos) {
+		identificacion.getTextApellidos().setText(apellidos);
+	}
+	
+	public void setTextNombre(String nombre) {
+		identificacion.getTextNombre().setText(nombre);
+	}
+	
+	public void setTextDireccion(String direccion) {
+		identificacion.getTextDireccion().setText(direccion);
+	}
+	
+	public void setTextTelefono(String telefono) {
+		identificacion.getTextTelefono().setText(telefono);
+	}
+	
+	public void setTextNacimiento(String nacimiento) {
+		identificacion.getTxtNacimiento().setText(nacimiento);
+	}
+	
+	public void setTextEspecialidad(String especialidad) {
+		altaEspecialidad.setText(especialidad);
+	}
+	
 	public String getTextApellidos() {
 		return identificacion.getTextApellidos().getText();
 	}
