@@ -23,8 +23,8 @@ public class CierreOperacion extends JPanel {
 	 */
 	public CierreOperacion() {
 		mensaje = new Mensaje();
-		Tabla tabla = new Tabla("Cierre operaciones", titulosColumnas );
-		tabla.agregarFila(campos);
+		Tabla tabla = new Tabla("Cierre operaciones", titulosColumnas, null, titulosColumnas );
+		
 		
 		JLabel lblNewLabel = new JLabel("Cerrar Operaciones");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));

@@ -17,6 +17,9 @@ public class BajaMedico extends JPanel {
 	private JTextField bajaConsulta;
 	private JTextField bajaHorario;
 	private JTextField txtEspecialidad;
+	private Seleccion seleccion;
+
+	
 
 	Mensaje mensaje;
 	Identificacion identificacion;
@@ -44,7 +47,7 @@ public class BajaMedico extends JPanel {
 		JLabel lblAltaMedico = new JLabel("Baja Medico");
 		lblAltaMedico.setFont(new Font("Tahoma", Font.PLAIN, 24));
 
-		Seleccion seleccion = new Seleccion();
+		seleccion = new Seleccion();
 		mensaje = new Mensaje();
 		identificacion = new Identificacion();
 
@@ -99,6 +102,30 @@ public class BajaMedico extends JPanel {
 				.addGap(18).addComponent(mensaje, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 				.addGap(30)));
 		this.setLayout(gl_contentPane);
+	}
+	
+	public void setTextApellidos(String apellidos) {
+		identificacion.getTextApellidos().setText(apellidos);
+	}
+	
+	public void setTextNombre(String nombre) {
+		identificacion.getTextNombre().setText(nombre);
+	}
+	
+	public void setTextDireccion(String direccion) {
+		identificacion.getTextDireccion().setText(direccion);
+	}
+	
+	public void setTextTelefono(String telefono) {
+		identificacion.getTextTelefono().setText(telefono);
+	}
+	
+	public void setTextNacimiento(String nacimiento) {
+		identificacion.getTxtNacimiento().setText(nacimiento);
+	}
+	
+	public void setTextEspecialidad(String especialidad) {
+		txtEspecialidad.setText(especialidad);
 	}
 
 	public Identificacion getIdentificacionBajaMedico() {
@@ -163,6 +190,10 @@ public class BajaMedico extends JPanel {
 
 	public void setTxtEspecialidad(JTextField txtEspecialidad) {
 		this.txtEspecialidad = txtEspecialidad;
+	}
+	
+	public Seleccion getSeleccion() {
+		return seleccion;
 	}
 
 

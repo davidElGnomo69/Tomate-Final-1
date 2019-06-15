@@ -15,12 +15,14 @@ import java.awt.BorderLayout;
 public class ConsultaDatosPaciente extends JPanel {
 
 	Identificacion identificacion;
+	Seleccion seleccion;
+
 
 	/**
 	 * Create the panel.
 	 */
 	public ConsultaDatosPaciente() {
-		Seleccion seleccion = new Seleccion();
+		seleccion = new Seleccion();
 		identificacion = new Identificacion();
 
 		JLabel lblNewLabel = new JLabel("Consulta Datos Paciente");
@@ -78,6 +80,10 @@ public class ConsultaDatosPaciente extends JPanel {
 
 	public String getTxtNacimiento() {
 		return identificacion.getTxtNacimiento().getText();
+	}
+	
+	public Seleccion getSeleccion() {
+		return seleccion;
 	}
 
 }
