@@ -22,10 +22,15 @@ public class VistaCitaIssam extends JPanel {
 	private JPanel panel;
 	private JButton boton;
 	Stack<JButton> botonera=new Stack<>();
+	private JComboBox cmbMedico;
+	private JLabel lblHoraUno;
+	private JLabel lblHoraDos;
+	private JLabel lblHora3;
+	private JLabel lblHora4;
 	public VistaCitaIssam() {
 		setBounds(100, 100, 750, 485);
 		JLabel lblTipo = new JLabel("Medico");
-		JComboBox comboBox = new JComboBox();
+		cmbMedico = new JComboBox();
 		panel = new JPanel();
 		crearBotonera();
 		JLabel lblLunes = new JLabel("Lunes");
@@ -38,13 +43,13 @@ public class VistaCitaIssam extends JPanel {
 		
 		JLabel lblViernes = new JLabel("Viernes");
 		
-		JLabel lblHoraUno = new JLabel("8:00");
+		lblHoraUno = new JLabel("8:00");
 		
-		JLabel lblHoraDos = new JLabel("9:00");
+		lblHoraDos = new JLabel("9:00");
 		
-		JLabel label = new JLabel("11:00");
+		lblHora4 = new JLabel("11:00");
 		
-		JLabel label_1 = new JLabel("10:00");
+		lblHora3 = new JLabel("10:00");
 		GroupLayout gl_contentPane = new GroupLayout(this);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -52,7 +57,7 @@ public class VistaCitaIssam extends JPanel {
 					.addContainerGap()
 					.addComponent(lblTipo)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(comboBox, 0, 232, Short.MAX_VALUE)
+					.addComponent(cmbMedico, 0, 232, Short.MAX_VALUE)
 					.addGap(439))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -71,8 +76,8 @@ public class VistaCitaIssam extends JPanel {
 							.addGap(83)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 								.addComponent(lblHoraUno)
-								.addComponent(label)
-								.addComponent(label_1)
+								.addComponent(lblHora4)
+								.addComponent(lblHora3)
 								.addComponent(lblHoraDos))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(panel, GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)))
@@ -84,7 +89,7 @@ public class VistaCitaIssam extends JPanel {
 					.addGap(30)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblTipo)
-						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(cmbMedico, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(38)
@@ -103,9 +108,9 @@ public class VistaCitaIssam extends JPanel {
 							.addGap(39)
 							.addComponent(lblHoraDos, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
 							.addGap(42)
-							.addComponent(label_1, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+							.addComponent(lblHora3, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
 							.addGap(38)
-							.addComponent(label, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+							.addComponent(lblHora4, GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
 							.addGap(141))))
 		);
 		panel.setLayout(new GridLayout(4, 5, 0, 0));
@@ -121,4 +126,21 @@ public class VistaCitaIssam extends JPanel {
 			
 		}
 		}
+	public JComboBox getCmbMedico() {
+		return cmbMedico;
+	}
+	public JLabel getLblHoraUno() {
+		return lblHoraUno;
+	}
+	public JLabel getLblHoraDos() {
+		return lblHoraDos;
+	}
+	public JLabel getLblHora3() {
+		return lblHora3;
+	}
+	public JLabel getLblHora4() {
+		return lblHora4;
+	}
+	
+	
 }

@@ -14,8 +14,8 @@ import panelComunes.Mensaje;
 
 public class AltaPaciente extends JPanel {
 
-	Identificacion identificacion;
-	Mensaje mensaje;
+	private Identificacion identificacion;
+	private Mensaje mensaje;
 
 	/**
 	 * Create the panel.
@@ -53,6 +53,17 @@ public class AltaPaciente extends JPanel {
 
 		this.setLayout(groupLayout);
 	}
+	
+
+	public Identificacion getIdentificacion() {
+		return identificacion;
+	}
+
+
+	public Mensaje getMensaje() {
+		return mensaje;
+	}
+
 
 	public JButton getBtnMensaje() {
 		return mensaje.getBtnAplicar();

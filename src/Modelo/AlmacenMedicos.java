@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class AlmacenMedicos{
@@ -20,6 +21,14 @@ public class AlmacenMedicos{
 		pathMedicos="./Medicos/ListaMedicos.medico";
 		pathMedicosActivos="./Medicos/ListaMedicosActivos.medico";
 		pathCirujanos="./Medicos/ListaCirujanos.medico";
+	}
+	
+	public void volcarDatosCirujanos() {
+		File file=new File(pathCirujanos);
+		if(file.canRead()) {
+			cirujanos=(ArrayList<CirujanoActivo>) daoMedicos.leer(pathCirujanos);
+		}
+		
 	}
 
 	public boolean addMedico(Medico medico) {
@@ -72,9 +81,11 @@ public class AlmacenMedicos{
 	
 	public boolean eliminarCirujano(CirujanoActivo cirujano) {
 		boolean eliminado=false;
+		System.out.println(cirujanos.contains(cirujano));
 		
 		eliminado=cirujanos.remove(cirujano);
-		if(!daoMedicos.grabar(pathMedicosActivos, cirujano) && eliminado) {
+		System.out.println(eliminado);
+		if(!daoMedicos.grabar(pathCirujanos, cirujanos) && eliminado) {
 			cirujanos.add(cirujano);
 			eliminado=false;
 		}
@@ -88,12 +99,22 @@ public class AlmacenMedicos{
 	}
 	
 	public ArrayList<MedicoActivo> obtenerListaMedicosActivos(){
-		medicosActivos= (ArrayList<MedicoActivo>) daoMedicos.leer(pathMedicosActivos);
+		File file= new File(pathMedicosActivos);
+		
+		if(file.canRead()) {
+			medicosActivos= (ArrayList<MedicoActivo>) daoMedicos.leer(pathMedicosActivos);
+		}
+		
 		return medicosActivos;
 	}
 	
 	public ArrayList<CirujanoActivo> obtenerListaCirujanos(){
-		cirujanos= (ArrayList<CirujanoActivo>) daoMedicos.leer(pathCirujanos);
+		File file=new File(pathCirujanos);
+		
+		if(file.canRead()) {
+			cirujanos= (ArrayList<CirujanoActivo>) daoMedicos.leer(pathCirujanos);
+		}
+		
 		return cirujanos;
 	}
 }
