@@ -6,20 +6,21 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import panelComunes.Seleccion;
 import panelComunes.Tabla;
-import javax.swing.JScrollPane;
 
 public class ConsultaCitasPendientes extends JPanel {
 	String [] titulosColumnas = {"Paciente","Tipo","Fecha","Medico"};
+	private Seleccion seleccion;
 	/**
 	 * Create the panel.
 	 */
 	public ConsultaCitasPendientes() {
-		Tabla tabla = new Tabla("Citas pendientes",titulosColumnas);
-		Seleccion seleccion = new Seleccion();
+		Tabla tabla = new Tabla("Citas pendientes", titulosColumnas, null, titulosColumnas ); 
+		seleccion = new Seleccion();
 		JLabel lblNewLabel = new JLabel("Citas Pendiente Paciente");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		
@@ -61,4 +62,8 @@ public class ConsultaCitasPendientes extends JPanel {
 		setLayout(groupLayout);
 
 	}
+	public Seleccion getSeleccion() {
+		return seleccion;
+	}
+	
 }

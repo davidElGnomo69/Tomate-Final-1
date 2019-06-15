@@ -8,7 +8,7 @@ public class AdministradorDePacientes {
 	private String path="./Indentificadores/UltimoIdPersona.persona";
 	
 	
-	public Paciente darDeAltaPaciente(String nombre, String direccion, String telefono, Date fechaNacimiento) {
+	public Paciente darDeAltaPaciente(String nombre, String direccion, String telefono, String fechaNacimiento) {
 		String id=obtenerUltimoId();
 		Paciente paciente=new Paciente(id, nombre, direccion, telefono, fechaNacimiento);
 		
