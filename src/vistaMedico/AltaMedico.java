@@ -18,6 +18,7 @@ public class AltaMedico extends JPanel {
 
 	private JTextField altaConsulta;
 	private JTextField altaHorario;
+	private JComboBox altaEspecialidad;
 	
 	Identificacion identificacion;
 	Mensaje mensaje;
@@ -30,7 +31,13 @@ public class AltaMedico extends JPanel {
 
 		JLabel lblEspecialidad = new JLabel("Especialidad");
 
-		JComboBox altaEspecialidad = new JComboBox();
+		altaEspecialidad = new JComboBox();
+		
+		altaEspecialidad.addItem("AtencionPrimaria");
+		altaEspecialidad.addItem("Traumatologia");
+		altaEspecialidad.addItem("Ginecologia");
+		altaEspecialidad.addItem("Oncologia");
+		altaEspecialidad.addItem("Cirujia");
 
 		JLabel lblConsulta = new JLabel("Consulta");
 
@@ -160,6 +167,14 @@ public class AltaMedico extends JPanel {
 
 	public void setAltaHorario(JTextField altaHorario) {
 		this.altaHorario = altaHorario;
+	}
+
+	public JComboBox getAltaEspecialidad() {
+		return altaEspecialidad;
+	}
+
+	public void setAltaEspecialidad(JComboBox altaEspecialidad) {
+		this.altaEspecialidad = altaEspecialidad;
 	}
 
 }
