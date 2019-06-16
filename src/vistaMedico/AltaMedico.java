@@ -48,6 +48,10 @@ public class AltaMedico extends JPanel {
 		mensaje = new Mensaje();
 		
 		cmbHorarioMedico = new JComboBox();
+		
+		cmbHorarioMedico.addItem("1");
+		cmbHorarioMedico.addItem("2");
+		
 		GroupLayout gl_contentPane = new GroupLayout(this);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -98,7 +102,7 @@ public class AltaMedico extends JPanel {
 	}
 	
 	
-	public JComboBox getComboBox() {
+	public JComboBox getComboBoxHorario() {
 		return cmbHorarioMedico;
 	}
 
